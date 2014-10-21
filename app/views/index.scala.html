@@ -1,7 +1,17 @@
 @(message: String)
 
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
+@main("TôDeBike") {
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+  </script>
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: { lat: -30.0277, lng: -51.1957},
+        zoom: 13
+      };
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+  <div id="map-canvas"></div>
 }
