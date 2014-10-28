@@ -12,6 +12,9 @@
       };
       var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+      var bikeLayer = new google.maps.BicyclingLayer();
+      bikeLayer.setMap(map);
+
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(-30.031851, -51.181636),
         map: map,
