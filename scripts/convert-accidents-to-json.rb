@@ -18,4 +18,4 @@ CSV.foreach(ARGV[0], col_sep: ';', headers: true) do |row|
   }
 end
 
-puts "window.acidentes = #{data.to_json};"
+puts "#{data.to_json}"
