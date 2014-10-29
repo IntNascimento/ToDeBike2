@@ -11,17 +11,24 @@ ToDeBike.initGoogleMap = function() {
     zoom: 14 /*,
     mapTypeId: google.maps.MapTypeId.SATELLITE*/
   };
-  var map = new google.maps.Map(document.getElementById(ToDeBike.mapCanvasId), mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(-30.031851, -51.181636),
-    map: map,
-    title: "Acidente"
-  });
+  ToDeBike.map = new google.maps.Map(document.getElementById(ToDeBike.mapCanvasId), mapOptions);
 }
 google.maps.event.addDomListener(window, 'load', ToDeBike.initGoogleMap);
 
+// Add a single marker to the map using the provided coordinates
+ToDeBike.addMarker = function(lat, lng, title) {
+  new google.maps.Marker({
+    position: new google.maps.LatLng(lat, lng),
+    map: ToDeBike.map,
+    title: title
+  });
+};
+
 // Asynchronous loading of accidents involving bikes
-ToDeBike.loadAccidents = function(accidentsPath) {
-  console.log(accidentsPath);
+ToDeBike.loadAccidents = function(jsonAccidentsPath) {
+  $.getJSON(jsonAccidentsPath, function(data) {
+    for (var i = 0; i < data.length; i++) {
+      ToDeBike.addMarker(data[i].latitude, data[i].longitude, "Acidente");
+    }
+  });
 };
