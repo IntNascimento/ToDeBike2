@@ -11,7 +11,7 @@ require 'json'
 data = []
 CSV.foreach(ARGV[0], col_sep: ';', headers: true) do |row|
   data << {
-    name:      row['nome'],
+    name:      row['nome'].gsub('_', ' '),
     latitude:  row['LATITUDE'].gsub(',', '.').to_f,
     longitude: row['LONGITUDE'].gsub(',', '.').to_f
   }
