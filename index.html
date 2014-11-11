@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TôDeBike</title>
+    <link rel="stylesheet" media="screen" href="stylesheets/main.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+  <body>
+
+    <div id="map-canvas"></div>
+
+    <script type="text/javascript">
+      $(function() {
+        ToDeBike.loadAccidents('data/accidents.json');
+        ToDeBike.loadBikePOAStations('data/bikepoa.json');
+      });
+    </script>
+  </body>
+</html>
