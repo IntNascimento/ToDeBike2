@@ -4,9 +4,6 @@ window.ToDeBike = window.ToDeBike || {};
 // DOM element that the map will be rendered
 ToDeBike.mapCanvasId = 'map-canvas';
 
-var map;
-var markers = [];
-
 // Kick off google maps rendering
 ToDeBike.initGoogleMap = function() {
   var mapOptions = {
@@ -17,17 +14,15 @@ ToDeBike.initGoogleMap = function() {
 }
 google.maps.event.addDomListener(window, 'load', ToDeBike.initGoogleMap);
 
-
-// Add a single marker to the Array markers using the provided coordinates
+// Add a single marker to the map using the provided coordinates
 ToDeBike.addMarker = function(lat, lng, title, icon) {
-	var marker = new google.maps.Marker({
-	position: new google.maps.LatLng(lat, lng),
+  new google.maps.Marker({
+    position: new google.maps.LatLng(lat, lng),
     icon: icon,
     map: ToDeBike.map,
     title: title
   });
-  markers.push(marker);
-}
+};
 
 // Asynchronous loading of accidents involving bikes
 ToDeBike.loadAccidents = function(accidentsJsonPath) {
@@ -56,21 +51,3 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
     }
   });
 };
-
-// Sets the map on all markers in the array.
-ToDeBike.setAllMap = function(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
-
-// Removes the markers from the map, but keeps them in the array.
-ToDeBike.clearMarkers = function() {
-  ToDeBike.setAllMap(null);
-}
-
-// Deletes all markers in the array by removing references to them.
-ToDeBike.deleteMarkers = function() {
-  ToDeBike.clearMarkers();
-  markers = [];
-}
