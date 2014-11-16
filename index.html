@@ -30,10 +30,14 @@ function acidentes(json){
 	ToDeBike.deleteMarkers();
 	ToDeBike.loadAccidents(json);
 }
+function initialize(){
+	ToDeBike.loadAccidents('data/accidents.json');
+	ToDeBike.loadBikePOAStations('data/bikepoa.json');
+}
 </script>
 
 </head>
-<body>
+<body onload="initialize()">
 <div class="corpo">
 	<div class="topo"></div>
 	<div class="menu">
@@ -95,11 +99,6 @@ function acidentes(json){
 		<div id="googlemaps" style="display:block">
 			<div id="titulo-filtro"></div>
 			<div class="maps" id="map-canvas"></div>
-			<script type="text/javascript">
-				$(function() {
-					ToDeBike.loadAccidents('data/accidents.json');
-					ToDeBike.loadBikePOAStations('data/bikepoa.json');
-				});
 			</script>
 		</div>	
 		<div id="conteudo" style="display:none">
