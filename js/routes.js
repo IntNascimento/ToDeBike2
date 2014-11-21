@@ -30,4 +30,15 @@ routie({
       $("#titulo-filtro").load("filtros-acidentes-" + type + ".html");
     }, 100);
   },
+
+  '/estacoes': function(type) {
+    $('#conteudo').hide();
+    $('#googlemaps').show();
+
+    setTimeout(function() {
+      ToDeBike.deleteMarkers();
+      ToDeBike.loadBikePOAStations('data/bikepoa.json');
+      $("#titulo-filtro").load("filtros-estacoes-bike.html");
+    }, 100);
+  },
 });
