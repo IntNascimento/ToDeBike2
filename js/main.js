@@ -40,6 +40,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
         "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
       );
     }
+    ToDeBike.centerMap();
   });
 };
 
@@ -54,8 +55,20 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
         "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
       );
     }
+    ToDeBike.centerMap();
   });
 };
+
+// Centers map based on known markers
+ToDeBike.centerMap = function() {
+  var latlngbounds = new google.maps.LatLngBounds();
+  for (var i = 0; i < markers.length; i++) {
+    marker = markers[i];
+    latlngbounds.extend(marker.getPosition());
+  }
+  ToDeBike.map.setCenter(latlngbounds.getCenter());
+  ToDeBike.map.fitBounds(latlngbounds);
+}
 
 // Sets the map on all markers in the array.
 ToDeBike.setAllMap = function(map) {
