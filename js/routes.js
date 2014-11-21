@@ -41,4 +41,22 @@ routie({
       $("#titulo-filtro").load("filtros-estacoes-bike.html");
     }, 100);
   },
+
+  '/dicas/:page': function(page) {
+    setTimeout(function() {
+      $('#googlemaps').hide();
+      $("#conteudo").load(page + ".html", function() {
+        $('#conteudo').show();
+      });
+    }, 100);
+  },
+
+  '/ondeir': function(page) {
+    setTimeout(function() {
+      $('#googlemaps').hide();
+      $("#conteudo").load("ondeir.html", function() {
+        $('#conteudo').show();
+      });
+    }, 100);
+  }
 });
