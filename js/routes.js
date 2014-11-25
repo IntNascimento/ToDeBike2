@@ -17,7 +17,7 @@ routie({
       ToDeBike.deleteMarkers();
       ToDeBike.loadAccidents("data/accidents.json");
       $("#titulo-filtro").load("filtros-acidentes-todos.html");
-    }, 100);
+    }, 300);
   },
 
   '/acidentes/:type': function(type) {
@@ -28,7 +28,7 @@ routie({
       ToDeBike.deleteMarkers();
       ToDeBike.loadAccidents("data/accidents-" + type + ".json");
       $("#titulo-filtro").load("filtros-acidentes-" + type + ".html");
-    }, 100);
+    }, 300);
   },
 
   '/estacoes': function(type) {
@@ -39,7 +39,7 @@ routie({
       ToDeBike.deleteMarkers();
       ToDeBike.loadBikePOAStations('data/bikepoa.json');
       $("#titulo-filtro").load("filtros-estacoes-bike.html");
-    }, 100);
+    }, 300);
   },
 
   '/dicas/:page': function(page) {
@@ -48,7 +48,7 @@ routie({
       $("#conteudo").load(page + ".html", function() {
         $('#conteudo').show();
       });
-    }, 100);
+    }, 300);
   },
 
   '/ondeir': function(page) {
@@ -57,6 +57,6 @@ routie({
       $("#conteudo").load("ondeir.html", function() {
         $('#conteudo').show();
       });
-    }, 100);
+    }, 300);
   }
 });
