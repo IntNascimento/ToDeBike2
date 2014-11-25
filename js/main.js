@@ -63,21 +63,19 @@ ToDeBike.getMarkerIconFor = function(accident) {
 ToDeBike.loadAccidents = function(accidentsJsonPath) {
   $.getJSON(accidentsJsonPath, function(data) {
     for (var i = 0; i < data.length; i++) {
-      var accident = data[i];
-
       var info = '<p>';
       info += "Tipo: " + data[i].type;
       info += '</p>';
      if (accident.fatal)
-      	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/AcidenteOnibusVitimaFatal.png">Name:' + accident.vehicles[0];
+      	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/AcidenteOnibusVitimaFatal.png">Name:';
       else
       	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidenteComCarro.jpg">';
-
+      
       ToDeBike.addMarker(
-        accident.latitude,
-        accident.longitude,
+        data[i].latitude,
+        data[i].longitude,
         "Acidente",
-        ToDeBike.getMarkerIconFor(accident),
+        ToDeBike.getMarkerIconFor(data[i]),
         info
       );
     }
