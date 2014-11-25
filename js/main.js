@@ -14,6 +14,8 @@ ToDeBike.initGoogleMap = function() {
     zoom: 14
   };
   ToDeBike.map = new google.maps.Map(document.getElementById(ToDeBike.mapCanvasId), mapOptions);
+  var bikeLayer = new google.maps.BicyclingLayer();
+  bikeLayer.setMap(ToDeBike.map);
 }
 google.maps.event.addDomListener(window, 'load', ToDeBike.initGoogleMap);
 
@@ -93,10 +95,4 @@ ToDeBike.clearMarkers = function() {
 ToDeBike.deleteMarkers = function() {
   ToDeBike.clearMarkers();
   markers = [];
-}
-
-// Ciclovias
-ToDeBike.setCiclovias = function(map) {
- var bikeLayer = new google.maps.BicyclingLayer();
-	bikeLayer.setMap(map);
 }
