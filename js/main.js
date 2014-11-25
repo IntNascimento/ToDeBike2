@@ -70,7 +70,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/AcidenteOnibusVitimaFatal.png">';
       else
       	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidenteComCarro.jpg">';
-      
+
       ToDeBike.addMarker(
         data[i].latitude,
         data[i].longitude,
@@ -87,11 +87,16 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
 ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
   $.getJSON(jsonBikePOAPath, function(data) {
     for (var i = 0; i < data.length; i++) {
+      var info = '<p>';
+      info += '<img src="images/bikepoa/' + data[i].name.replace(/\s+/gm, '_') + '.jpg">';
+      info += '</p>';
+
       ToDeBike.addMarker(
         data[i].latitude,
         data[i].longitude,
         "Estação '" + data[i].name + "'",
-        "images/icons/bike.png"
+        "images/icons/bike.png",
+        info
       );
     }
     ToDeBike.centerMap();

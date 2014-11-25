@@ -12,8 +12,12 @@ body {
 
 }
 #bodyContent {
-  width: 300px;
-  text-align: left;
+  width: 400px;
+  height: 257px;
+}
+#bodyContent img {
+  width: 400px;
+  height: 257px;
 }
 .corpo{
 	width: 1000px;
