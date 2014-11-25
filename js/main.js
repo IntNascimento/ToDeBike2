@@ -92,6 +92,10 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
   });
 };
 
+
+  var loadScriptTime = (new Date).getTime();
+  getScript("https://maps.gstatic.com/maps-api-v3/api/js/18/15a/intl/pt_br/main.js");
+})();
 // Asynchronous loading of BikePOA stations
 ToDeBike.loadBikePOAStations = function(apiLoad) {
     delete google.maps.Load;
