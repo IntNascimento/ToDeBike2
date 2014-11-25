@@ -100,7 +100,7 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
       var info = '<p>';
       info += '<img src="images/bikepoa/' + data[i].name.replace(/\s+/gm, '_') + '.jpg">';
       info += '</p>';
-      info += '<p>Para informações de disponibilidade consulte:</p><a href="http://www.mobilicidade.com.br/bikepoa.asp">Mobilidade</a>;
+      info += '<p>Para informações de disponibilidade consulte:</p><a href="www.mobilicidade.com.br/bikepoa.asp">Mobilidade</a>;
 
       ToDeBike.addMarker(
         data[i].latitude,
