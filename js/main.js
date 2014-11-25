@@ -70,6 +70,9 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       var info = '<p>';
       info += "Tipo: " + accident.type;
       info += '</p>';
+      var date = Date.parse(accident.date);
+	 info += '<p>Data:' + date.toString('dd-MMM-yyyy') + '</p>';
+
       if (!accident.fatal)
    	info += '<p>Feridos: ' + accident.injuried + '</p>';
       if (accident.vehicles[0] == "ONIBUS_URB" || accident.vehicles[0] == "ONIBUS_MET")
