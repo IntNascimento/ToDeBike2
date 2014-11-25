@@ -70,8 +70,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       var info = '<p>';
       info += "Tipo: " + accident.type;
       info += '</p>';
-      var date = Date.parse(accident.date);
-	 info += '<p>Data:' + date.toString('dd-MMM-yyyy') + '</p>';
+      info += '<p>Veículo envolvido:' + accident.vehicles[0] + '</p>';
 
       if (!accident.fatal)
    	info += '<p>Feridos: ' + accident.injuried + '</p>';
