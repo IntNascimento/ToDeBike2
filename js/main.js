@@ -33,7 +33,7 @@ ToDeBike.getMarkerIconFor = function(accident) {
   if (accident.fatal)
     return "images/icons/acidente-fatal.png";
   else
-    return "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+    return "images/icons/acidente-nao-fatal.png";
 };
 
 // Asynchronous loading of accidents involving bikes
