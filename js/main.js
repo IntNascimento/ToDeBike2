@@ -87,3 +87,9 @@ ToDeBike.deleteMarkers = function() {
   ToDeBike.clearMarkers();
   markers = [];
 }
+
+// Ciclovias
+ToDeBike.setCiclovias = function(map) {
+ var bikeLayer = new google.maps.BicyclingLayer();
+	bikeLayer.setMap(map);
+}
