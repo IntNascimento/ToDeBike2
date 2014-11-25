@@ -66,7 +66,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       var info = '<p>';
       info += "Tipo: " + data[i].type;
       info += '</p>'
-      info += '<IMG BORDER="0" ALIGN="Left" SRC="images/icons/ipanema.jpg">';
+      info += '<IMG BORDER="0" ALIGN="Left" SRC="../images/icons/ipanema.jpg">';
 
 
       ToDeBike.addMarker(
