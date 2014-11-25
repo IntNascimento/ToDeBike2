@@ -34,7 +34,6 @@ body {
 .menu-horizontal{
 	position: relative;
 	top: 1px;
-	width: 1000px;
 	height: 40px;
 	display: block;
 	border: 1px solid;
