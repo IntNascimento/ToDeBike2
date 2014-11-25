@@ -29,6 +29,13 @@ ToDeBike.addMarker = function(lat, lng, title, icon) {
   markers.push(marker);
 }
 
+ToDeBike.getMarkerIconFor = function(accident) {
+  if (accident.fatal)
+    return "images/icons/acidente-fatal.png";
+  else
+    return "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+};
+
 // Asynchronous loading of accidents involving bikes
 ToDeBike.loadAccidents = function(accidentsJsonPath) {
   $.getJSON(accidentsJsonPath, function(data) {
@@ -37,7 +44,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
         data[i].latitude,
         data[i].longitude,
         "Acidente",
-        "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+        ToDeBike.getMarkerIconFor(data[i])
       );
     }
     ToDeBike.centerMap();
