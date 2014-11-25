@@ -19,6 +19,8 @@ ToDeBike.initGoogleMap = function() {
   bikeLayer.setMap(ToDeBike.map);
 
   ToDeBike.infoWindow = new google.maps.InfoWindow({});
+
+  window.initRoutes();
 }
 google.maps.event.addDomListener(window, 'load', ToDeBike.initGoogleMap);
 
