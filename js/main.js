@@ -14,14 +14,17 @@ ToDeBike.initGoogleMap = function() {
     zoom: 14
   };
   ToDeBike.map = new google.maps.Map(document.getElementById(ToDeBike.mapCanvasId), mapOptions);
+
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(ToDeBike.map);
+
+  ToDeBike.infoWindow = new google.maps.InfoWindow({});
 }
 google.maps.event.addDomListener(window, 'load', ToDeBike.initGoogleMap);
 
 
 // Add a single marker to the Array markers using the provided coordinates
-ToDeBike.addMarker = function(lat, lng, title, icon) {
+ToDeBike.addMarker = function(lat, lng, title, icon, info) {
 	var marker = new google.maps.Marker({
 	position: new google.maps.LatLng(lat, lng),
     icon: icon,
@@ -29,6 +32,24 @@ ToDeBike.addMarker = function(lat, lng, title, icon) {
     title: title
   });
   markers.push(marker);
+
+  if (info) {
+    google.maps.event.addListener(marker, 'click', (function(marker,content){
+        return function() {
+          var contentString =
+                '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">' + title + '</h1>'+
+                '<div id="bodyContent">'+
+                content+
+                '</div>'+
+                '</div>';
+            ToDeBike.infoWindow.setContent('<div>'+contentString+'</div>');
+            ToDeBike.infoWindow.open(ToDeBike.map, marker);
+        };
+    })(marker, info));
+  }
 }
 
 ToDeBike.getMarkerIconFor = function(accident) {
@@ -42,11 +63,16 @@ ToDeBike.getMarkerIconFor = function(accident) {
 ToDeBike.loadAccidents = function(accidentsJsonPath) {
   $.getJSON(accidentsJsonPath, function(data) {
     for (var i = 0; i < data.length; i++) {
+      var info = '<p>';
+      info += "Tipo: " + data[i].type;
+      info += '</p>';
+
       ToDeBike.addMarker(
         data[i].latitude,
         data[i].longitude,
         "Acidente",
-        ToDeBike.getMarkerIconFor(data[i])
+        ToDeBike.getMarkerIconFor(data[i]),
+        info
       );
     }
     ToDeBike.centerMap();
