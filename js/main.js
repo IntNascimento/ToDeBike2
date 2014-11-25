@@ -66,7 +66,7 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       var info = '<p>';
       info += "Tipo: " + data[i].type;
       info += '</p>';
-     if (accident.vehicles[0] === "ONIBUS")
+     if (accident.vehicles[0] == "ONIBUS")
       	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/AcidenteOnibusVitimaFatal.png">';
       else
       	info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidenteComCarro.jpg">';
