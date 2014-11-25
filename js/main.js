@@ -98,7 +98,7 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
   $.getJSON(jsonBikePOAPath, function(data) {
     for (var i = 0; i < data.length; i++) {
       var info = '<p>';
-      info += 'Disponibilidade das bikes:</p><a href="www.mobilicidade.com.br/bikepoa.asp">mobilicidade.com.br</a>';
+      info += 'Disponibilidade das bikes:<a href="www.mobilicidade.com.br/bikepoa.asp">mobilicidade.com.br</a></p>';
       info += '<p><img src="images/bikepoa/' + data[i].name.replace(/\s+/gm, '_') + '.jpg"></p>';
       
       ToDeBike.addMarker(
