@@ -52,7 +52,7 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
         data[i].latitude,
         data[i].longitude,
         "Estação '" + data[i].name + "'",
-        "../images/icones/bike.png"
+        "../images/icons/bike.png"
       );
     }
     ToDeBike.centerMap();
