@@ -11,6 +11,10 @@ body {
 #map-canvas {
 
 }
+#bodyContent {
+  width: 300px;
+  text-align: left;
+}
 .corpo{
 	width: 1000px;
 	margin: 0px auto 0px auto;
