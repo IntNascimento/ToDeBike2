@@ -72,9 +72,9 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       info += '</p>';
 
       if (accident.vehicles[0] == "ONIBUS_URB" or accident.vehicles[0] == "ONIBUS_MET")
-        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/AcidenteOnibusVitimaFatal.png">';
+        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/onibus.jpg">';
       else
-        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/acidenteComCarro.jpg">';
+        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/carro.jpg">';
 
       ToDeBike.addMarker(
         accident.latitude,
