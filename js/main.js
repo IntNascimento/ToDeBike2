@@ -75,9 +75,9 @@ ToDeBike.loadAccidents = function(accidentsJsonPath) {
       if (!accident.fatal)
    	info += '<p>Feridos: ' + accident.injuried + '</p>';
       if (accident.vehicles[0] == "ONIBUS_URB" || accident.vehicles[0] == "ONIBUS_MET")
-        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/onibus.jpg">';
+        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/onibus.jpg"/>';
       else
-        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/carro.jpg">';
+        info += '<IMG BORDER="0" ALIGN="Left" SRC="images/acidentes/carro.jpg"/>';
 
       ToDeBike.addMarker(
         accident.latitude,
@@ -100,7 +100,7 @@ ToDeBike.loadBikePOAStations = function(jsonBikePOAPath) {
       var info = '<p>';
       info += '<img src="images/bikepoa/' + data[i].name.replace(/\s+/gm, '_') + '.jpg">';
       info += '</p>';
-      info += '<p>Para informações de disponibilidade consulte:</p><a href="www.mobilicidade.com.br">Mobilidade</a>;
+      info += '<p>Para informações de disponibilidade consulte:</p><a href="www.mobilicidade.com.br"/>;
 
       ToDeBike.addMarker(
         data[i].latitude,
