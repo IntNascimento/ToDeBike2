@@ -49,7 +49,8 @@ function initRoutes() {
       $("#conteudo").load("ondeir.html", function() {
         $('#conteudo').show();
       });
-    }
+    },
+    
      '/tweets': function(page) {
       $('#googlemaps').hide();
       $("#conteudo").load("tweets.html", function() {
