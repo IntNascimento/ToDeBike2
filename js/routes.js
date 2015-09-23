@@ -50,5 +50,11 @@ function initRoutes() {
         $('#conteudo').show();
       });
     }
+     '/tweets': function(page) {
+      $('#googlemaps').hide();
+      $("#conteudo").load("tweets.html", function() {
+        $('#conteudo').show();
+      });
+    }
   });
 };
